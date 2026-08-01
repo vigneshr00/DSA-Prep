@@ -127,3 +127,35 @@ firstNonRepeating("teeter")
 
 # Try a few and share your code — I'll review it and point out what's working well and what could be cleaner.
 
+
+# --------------------------------------------------- Day 3 ------------------------------------------------------------------
+
+# 1. Given a list of words, count the frequency of each word.
+words = ["apple", "banana", "apple", "cherry", "banana", "apple"]
+# Expected: {'apple': 3, 'banana': 2, 'cherry': 1}
+
+def count_frequescy(arr):
+    result = {}
+    for i in arr:
+        if(i in result):
+            result[i] += 1
+        result.setdefault(i, 1)
+    return result
+count_frequescy(words)
+
+
+# 2. Given two dictionaries, merge them. If a key exists in both, sum their values.
+# d1 = {"a": 10, "b": 20, "c": 30}
+# d2 = {"b": 5, "c": 10, "d": 40}
+# Expected: {'a': 10, 'b': 25, 'c': 40, 'd': 40}
+
+def merginDict(d1, d2):
+    for key, value in d2.items():
+        if(key in d1):
+            d1[key] = d1[key] + value
+        else:
+            d1[key] = value
+    return d1
+merginDict({"a": 10, "b": 20, "c": 30},{"b": 5, "c": 10, "d": 40})
+
+
