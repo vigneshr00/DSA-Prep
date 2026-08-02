@@ -158,4 +158,55 @@ def merginDict(d1, d2):
     return d1
 merginDict({"a": 10, "b": 20, "c": 30},{"b": 5, "c": 10, "d": 40})
 
+#3. Find the key with the maximum value in a dictionary (without using max()).
+scores = {"Alex": 85, "Priya": 92, "John": 78}
+# Expected: 'Priya'
 
+def findMaxKey(d1):
+    maxValue = 0
+    maxKey = ""
+    for key, value in d1.items():
+        if(maxValue < value):
+            maxValue = value
+            maxKey = key
+    return maxKey
+
+findMaxKey(scores)
+
+
+# 4. Invert a dictionary (swap keys and values).
+d = {"a": 1, "b": 2, "c": 3}
+# Expected: {1: 'a', 2: 'b', 3: 'c'}
+
+def invertDict(d1):
+    d2 = {}
+    for key, value in d1.items():
+        d2[value] = key
+    return d2
+
+invertDict(d)
+
+# 5. Given a 2D array (list of lists), find the sum of all elements.
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+# Expected: 45
+def sumOfAllElements(d1):
+    result = 0
+    for i in d1:
+        for j in i:
+            result += j
+    return result
+
+sumOfAllElements(matrix)
+
+
+# 6. Print a 2D array in transposed form (rows become columns).
+matrix = [[1, 2, 3], [4, 5, 6]]
+# Expected: [[1, 4], [2, 5], [3, 6]]
+
+def twoDArr(arr):
+    arr1 = [[] for _ in range(len(arr[0]))]
+    for i in arr:
+        for j in i:
+            arr1[i.index(j)].append(j)
+    return arr1
+twoDArr(matrix)
