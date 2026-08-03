@@ -243,3 +243,70 @@ def diagonalPattern(arr):
 diagonalPattern(matrix)
 
 # ------------------------------ Day 4 -------------------------------------
+
+# 1. Write a recursive function to calculate the factorial of a number.
+
+def factorial(n):
+    if n == 0:
+        return 1
+    return n* factorial(n-1)
+
+factorial(5)
+
+# 2. Write a recursive function to calculate the sum of the first n natural numbers.
+
+def sumOfNaturalNumbers(n):
+    if n == 0:
+        return 0
+    return n + sumOfNaturalNumbers(n-1)
+
+sumOfNaturalNumbers(5)
+
+# 3. Write a recursive function to find the nth Fibonacci number
+
+def fibonacci(n):
+    if n <= 1:
+        return n
+
+    return fibonacci(n - 1) + fibonacci(n - 2)
+
+
+fibonacci(6)
+
+# 4. Write a recursive function to reverse a string (no slicing, no loops — recursion only).
+
+def reverse_str(string, index=None):
+    if index is None:
+        index = len(string) - 1
+
+    if index < 0:
+        return ""
+
+    return string[index] + reverse_str(string, index - 1)
+
+reverse_str("hello")
+
+# 5. Write a recursive function to check if a string is a palindrome.
+
+# is_palindrome("madam")   # Expected: True
+# is_palindrome("hello")   # Expected: False
+
+
+
+
+# 6. Write a recursive function to find the maximum element in a list (no max()).
+
+# find_max([3, 7, 2, 9, 4])   # Expected: 9
+
+
+
+
+# 7. Write a recursive function to calculate x raised to the power n (i.e., x^n).
+
+# power(2, 5)   # Expected: 32
+
+
+
+# 8. Write a recursive function to count the number of digits in a number.
+
+# count_digits(12345)   # Expected: 5
