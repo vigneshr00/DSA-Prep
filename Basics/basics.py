@@ -210,3 +210,36 @@ def twoDArr(arr):
             arr1[i.index(j)].append(j)
     return arr1
 twoDArr(matrix)
+
+#7. Given a 2D array, find the row with the maximum sum.
+matrix = [[1, 2, 3], [10, 20, 30], [4, 5, 6]]
+# Expected: index 1 (sum = 60)
+def maxArr(arr):
+    max = 0
+    maxIndex = 0
+    result = ''
+    for i in arr:
+        total = 0
+        for j in i:
+            total += j
+        if(max < total):
+            max = total
+            maxIndex = arr.index(i)
+    return f"index {maxIndex} (sum = {max})"
+maxArr(matrix)
+
+
+
+#8. Print all elements of a 2D array in a diagonal pattern (top-left to bottom-right).
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+# Expected: [1, 5, 9]
+
+def diagonalPattern(arr):
+    result = []
+    for i in arr:
+        result.append(i[arr.index(i)])
+    return result
+
+diagonalPattern(matrix)
+
+# ------------------------------ Day 4 -------------------------------------
