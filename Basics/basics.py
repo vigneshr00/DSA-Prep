@@ -288,25 +288,69 @@ reverse_str("hello")
 
 # 5. Write a recursive function to check if a string is a palindrome.
 
-# is_palindrome("madam")   # Expected: True
-# is_palindrome("hello")   # Expected: False
+def is_palindrome(value, result):
+    if len(value) == 1:
+        return result
+    if(value[0] == value[-1] and len(value) > 2):        
+        return is_palindrome(value[1:-1], True)
+    elif len(value) == 2 and value[0] == value[-1]:
+        return True
+    else:
+        return False
 
-
+is_palindrome("madam", False)   # Expected: True
+is_palindrome("absfba", False)   # Expected: False
 
 
 # 6. Write a recursive function to find the maximum element in a list (no max()).
 
 # find_max([3, 7, 2, 9, 4])   # Expected: 9
 
+def find_max(arr, result):
+        if len(arr) == 0:
+            # print("first.....",arr, result)
+            return result
+        if arr[0] > result:
+            # print("second.....",arr, result)
+            return find_max(arr[1:], arr[0])
+        else:
+            return find_max(arr[1:], result)
+
+# this version is given by chatgpt
+
+    #     def find_max(arr):
+    # if len(arr) == 1:
+    #     return arr[0]
+
+    # max_rest = find_max(arr[1:])
+
+    # if arr[0] > max_rest:
+    #     return arr[0]
+    # else:
+    #     return max_rest
 
 
+# print(find_max([90, 1, 2, 70, 5, 10]))
+
+print(find_max([-5, -2, -8], float("-inf") ))
+    
 
 # 7. Write a recursive function to calculate x raised to the power n (i.e., x^n).
 
 # power(2, 5)   # Expected: 32
+def power(x, n):
+    if n == 0:
+        return 1
+    return x * power(x , n-1)
 
+power(5,2)
 
 
 # 8. Write a recursive function to count the number of digits in a number.
 
-# count_digits(12345)   # Expected: 5
+def count_digits(arr, result):
+        if arr // 10 == 0:
+            return result+1
+        else:
+            return count_digits(arr // 10,result = result+1 )
+count_digits(12345, 0)   # Expected: 5
