@@ -332,7 +332,7 @@ def find_max(arr, result):
 
 # print(find_max([90, 1, 2, 70, 5, 10]))
 
-print(find_max([-5, -2, -8], float("-inf") ))
+find_max([-5, -2, -8], float("-inf") )
     
 
 # 7. Write a recursive function to calculate x raised to the power n (i.e., x^n).
@@ -354,3 +354,113 @@ def count_digits(arr, result):
         else:
             return count_digits(arr // 10,result = result+1 )
 count_digits(12345, 0)   # Expected: 5
+
+# --------------------------------------------- Day 5 -------------------------------------
+# class Dog:
+#     def bark(self):              # instance method — needs a specific dog's data
+#         print(f" barks")
+
+#     @staticmethod
+#     def general_fact(name):          # static method — no self, no instance data needed
+#         print(f"{name}Dogs are mammals")
+
+#     @classmethod
+#     def species(cls):            # class method — operates on the CLASS, not an instance
+#         print("All dogs are Canis familiaris")
+# d = Dog()
+# # d.name = 'Dog'
+# d.species()
+# d.general_fact("Vicky")
+# d.bark()
+
+class Person():
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    def introduce(self):
+        return f"Hi I'm {self.name} and I'm {self.age} years old"
+
+p = Person('Alex', 25)
+p.introduce()
+
+class Rectangle():
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+    def area(self):
+        return self.width * self.height
+    def perimeter(self):
+        return 2*(self.width + self.height)
+
+r = Rectangle(4,5)
+r.area()
+r.perimeter()
+
+
+class BankAccount():
+    def __init__(self):
+        self.amount = 0
+        self.balance = 0
+    def deposite(self, amount):
+        self.amount = amount
+        self.balance = self.balance + self.amount
+        print(f"Bank Balance : {self.balance}")
+    def withdraw(self, amount):
+        self.amount = amount
+        if(self.amount > self.balance):
+            print(f"u have only {self.balance} left")
+        else:
+            self.balance = self.balance - self.amount
+            print(f"Remaining Balance : {self.balance}")
+    def remaining(self):
+        print(self.balance)
+
+
+acc = BankAccount()
+acc.deposite(2000)
+acc.withdraw(1000)
+acc.remaining()
+acc.withdraw(1100)
+
+class Car():
+    def __init__(self, brand,model, year):
+        self.brand = brand
+        self.model = model
+        self.year = year
+    def display_info(self):
+        print(f"{self.brand} {self.model}, {self.year}")
+
+car1 = Car("Toyota", "Corolla", 2020)
+car2 = Car("Honda", "Civic", 2022)
+car1.display_info() 
+car2.display_info() 
+
+class Counter():
+    def __init__(self):
+        self.value = 0
+    def get_count(self):
+        return self.value
+    def increment(self):
+        self.value += 1
+        return self.value
+    def decrement(self):
+        self.value -= 1
+        return self.value
+    
+
+c = Counter()
+c.increment()
+c.increment()
+c.decrement()
+print(c.get_count())
+
+
+class Student():
+    def __init__(self, name, marks):
+        self.name = name
+        self.marks = marks
+    def average(self):
+        return sum(self.marks) / len(self.marks)
+
+s = Student("Priya", [80, 90, 70])
+print(s.average())   # 80.0
